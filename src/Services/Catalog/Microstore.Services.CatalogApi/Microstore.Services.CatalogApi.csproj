@@ -21,7 +21,10 @@
     <Folder Include="Products\GetProductById\" />
     <Folder Include="Products\DeleteProduct\" />
     <Folder Include="Products\GetProductByCategory\" />
-    <Folder Include="Products\CreateProduct\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj" />
   </ItemGroup>
 
 </Project>
