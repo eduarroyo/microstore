@@ -1,7 +1,4 @@
-﻿using BuildingBlocks.CQRS;
-using Microstore.Services.CatalogApi.Models;
-
-namespace Microstore.Services.CatalogApi.Products.CreateProduct;
+﻿namespace Microstore.Services.CatalogApi.Products.CreateProduct;
 
 public record CreateProductCommand 
 (
@@ -14,7 +11,7 @@ public record CreateProductCommand
 
 public record CreateProductResult(Guid Id);
 
-internal class CreateProductCommandHandler
+internal class CreateProductCommandHandler(IDocumentSession session)
     : ICommandHandler<CreateProductCommand, CreateProductResult>
 {
     public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
@@ -29,10 +26,11 @@ internal class CreateProductCommandHandler
             Price = command.Price
         };
 
-        // TODO 2. Save product entity to database
-
+        // 2. Save product entity to database
+        session.Store(product);
+        await session.SaveChangesAsync(cancellationToken);
 
         // 3. Return CreateProductResult with product id
-        return new CreateProductResult(Guid.NewGuid());
+        return new CreateProductResult(product.Id);
     }
 }

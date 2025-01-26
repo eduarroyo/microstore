@@ -1,0 +1,11 @@
+services:
+  catalogdb:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=CatalogDb
+
+volumes:
+  postgres_catalog:
+    
