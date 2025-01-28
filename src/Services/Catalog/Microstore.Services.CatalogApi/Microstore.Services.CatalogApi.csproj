@@ -18,8 +18,6 @@
 
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="Products\UpdateProduct\" />
-    <Folder Include="Products\DeleteProduct\" />
   </ItemGroup>
 
   <ItemGroup>
