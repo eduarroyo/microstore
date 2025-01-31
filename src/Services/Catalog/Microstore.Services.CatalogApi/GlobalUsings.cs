@@ -9,3 +9,4 @@ global using Microstore.Services.CatalogApi.Models;
 global using BuildingBlocks.Behaviours;
 global using BuildingBlocks.Exceptions;
 global using BuildingBlocks.Exceptions.Handler;
+global using Microstore.Services.CatalogApi.Data;
