@@ -1,7 +1,9 @@
 ﻿
+using Marten.Pagination;
+
 namespace Microstore.Services.CatalogApi.Products.GetProducts;
 
-public record GetProductsQuery(): IQuery<GetProductsResult>;
+public record GetProductsQuery(int? PageNumber = 1, int? PageSize = 10): IQuery<GetProductsResult>;
 
 public record GetProductsResult(IEnumerable<Product> Products);
 
@@ -11,7 +13,8 @@ public class GetProductsQueryHandler
 {
     public async Task<GetProductsResult> Handle(GetProductsQuery query, CancellationToken cancellationToken)
     {
-        IReadOnlyList<Product> products = await session.Query<Product>().ToListAsync(cancellationToken);
+        IPagedList<Product> products = await session.Query<Product>()
+            .ToPagedListAsync(query.PageNumber ?? 1, query.PageSize ?? 10, cancellationToken);
         return new GetProductsResult(products);
     }
 }
