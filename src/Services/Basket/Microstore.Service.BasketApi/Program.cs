@@ -11,6 +11,19 @@ builder.Services.AddMediatR(config =>
 });
 builder.Services.AddOpenApi();
 
+builder.Services
+    .AddMarten(opts =>
+    {
+        opts.Connection(builder.Configuration.GetConnectionString("Database")!);
+        opts.Schema.For<ShoppingCart>().Identity(sc => sc.UserName);
+    })
+    .UseLightweightSessions();
+
+//if (builder.Environment.IsDevelopment())
+//{
+//    builder.Services.InitializeMartenWith<CatalogInitialData>();
+//}
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline

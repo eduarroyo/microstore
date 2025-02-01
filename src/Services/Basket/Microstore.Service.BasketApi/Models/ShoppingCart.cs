@@ -1,4 +1,6 @@
-﻿namespace Microstore.Service.BasketApi.Models;
+﻿using Marten.Schema;
+
+namespace Microstore.Service.BasketApi.Models;
 
 public class ShoppingCart
 {

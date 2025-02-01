@@ -1,7 +1,9 @@
-﻿global using BuildingBlocks.CQRS;
-global using BuildingBlocks.Behaviours;
-global using Microstore.Service.BasketApi.Models;
+﻿global using BuildingBlocks.Behaviours;
+global using BuildingBlocks.CQRS;
 global using Carter;
-global using MediatR;
-global using Mapster;
 global using FluentValidation;
+global using Mapster;
+global using Marten;
+global using MediatR;
+global using Microstore.Service.BasketApi.Exceptions;
+global using Microstore.Service.BasketApi.Models;

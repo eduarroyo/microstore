@@ -1,6 +1,8 @@
 services:
   catalogdb:
     image: postgres
+  basketdb:
+    image: postgres
 
   microstore.services.catalogapi:
     image: ${DOCKER_REGISTRY-}microstoreservicescatalogapi
@@ -10,4 +12,4 @@ services:
 
 volumes:
   postgres_catalog:
-    
+  postgres_basket:
