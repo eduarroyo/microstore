@@ -1,3 +1,5 @@
+using Microsoft.Extensions.DependencyInjection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,6 +11,8 @@ builder.Services.AddMediatR(config =>
     config.AddOpenBehavior(typeof(ValidationBehaviour<,>));
     config.AddOpenBehavior(typeof(LoggingBehaviour<,>));
 });
+
+builder.Services.AddOpenApi();
 
 builder.Services.AddValidatorsFromAssembly(assembly);
 
@@ -41,5 +45,11 @@ app.UseHealthChecks("/health",
     });
 
 app.UseExceptionHandler(options => { });
+
+if(app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+    app.UseSwaggerUI(setup => setup.SwaggerEndpoint("/openapi/v1.json", "Catalog API"));
+}
 
 app.Run();
