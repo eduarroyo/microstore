@@ -19,7 +19,6 @@
     <Folder Include="Basket\DeleteBasket\" />
     <Folder Include="Basket\CheckoutBasket\" />
     <Folder Include="Basket\GetBasket\" />
-    <Folder Include="Basket\StoreBasket\" />
     <Folder Include="Dtos\" />
     <Folder Include="Exceptions\" />
     <Folder Include="GrpcServices\" />
