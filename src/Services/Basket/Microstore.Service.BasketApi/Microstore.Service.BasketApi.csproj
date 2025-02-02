@@ -24,6 +24,8 @@
     <Folder Include="Basket\GetBasket\" />
     <Folder Include="Dtos\" />
 	<Folder Include="GrpcServices\" />
+	<Folder Include="Dtos\" />
+	<Folder Include="GrpcServices\" />
   </ItemGroup>
 
   <ItemGroup>
