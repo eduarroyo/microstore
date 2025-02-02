@@ -1,8 +1,9 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add srevices to the container
+// Add revices to the container
 builder.Services.AddCarter();
 System.Reflection.Assembly assembly = typeof(Program).Assembly;
+builder.Services.AddScoped<IBasketRepository, BasketRepository>();
 builder.Services.AddMediatR(config =>
 {
     config.RegisterServicesFromAssembly(assembly);
