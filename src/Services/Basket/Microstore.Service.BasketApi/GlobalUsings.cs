@@ -5,6 +5,7 @@ global using FluentValidation;
 global using Mapster;
 global using Marten;
 global using MediatR;
+global using Microsoft.Extensions.Caching.Distributed;
 global using Microstore.Service.BasketApi.Data;
 global using Microstore.Service.BasketApi.Exceptions;
 global using Microstore.Service.BasketApi.Models;

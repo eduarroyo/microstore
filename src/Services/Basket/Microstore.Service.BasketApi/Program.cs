@@ -3,7 +3,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add revices to the container
 builder.Services.AddCarter();
 System.Reflection.Assembly assembly = typeof(Program).Assembly;
-builder.Services.AddScoped<IBasketRepository, BasketRepository>();
 builder.Services.AddMediatR(config =>
 {
     config.RegisterServicesFromAssembly(assembly);
@@ -20,6 +19,14 @@ builder.Services
     })
     .UseLightweightSessions();
 
+builder.Services.AddScoped<IBasketRepository, BasketRepository>();
+builder.Services.Decorate<IBasketRepository, CachedBasketRepository>();
+
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = builder.Configuration.GetConnectionString("Redis")!;
+    //options.InstanceName = "BasketApi";
+});
 //if (builder.Environment.IsDevelopment())
 //{
 //    builder.Services.InitializeMartenWith<CatalogInitialData>();

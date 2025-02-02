@@ -1,5 +1,4 @@
-﻿
-namespace Microstore.Service.BasketApi.Data;
+﻿namespace Microstore.Service.BasketApi.Data;
 
 public interface IBasketRepository
 {

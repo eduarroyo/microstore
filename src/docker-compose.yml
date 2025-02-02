@@ -1,8 +1,12 @@
 services:
   catalogdb:
     image: postgres
+
   basketdb:
     image: postgres
+
+  distributedcache:
+    image: redis
 
   microstore.services.catalogapi:
     image: ${DOCKER_REGISTRY-}microstoreservicescatalogapi
