@@ -12,9 +12,7 @@ public class GetBasketHandler
 {
     public async Task<GetBasketResult> Handle(GetBasketQuery request, CancellationToken cancellationToken)
     {
-        // TODO: get basket from database
         ShoppingCart shoppingCart = await Repository.GetBasket(request.UserName, cancellationToken);
-
         return new GetBasketResult(shoppingCart);
     }
 }
