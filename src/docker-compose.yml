@@ -14,6 +14,12 @@ services:
       context: .
       dockerfile: Services/Catalog/Microstore.Services.CatalogApi/Dockerfile
 
+  microstore.service.basketapi:
+    image: ${DOCKER_REGISTRY-}microstoreservicebasketapi
+    build:
+      context: .
+      dockerfile: services/Basket/Microstore.Service.BasketApi/Dockerfile
+
 volumes:
   postgres_catalog:
   postgres_basket:
