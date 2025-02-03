@@ -398,3 +398,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/src/Services/Discount/Microstore.Service.DiscountGrpc/discountdb
+/src/Services/Discount/Microstore.Service.DiscountGrpc/discountdb-shm
+/src/Services/Discount/Microstore.Service.DiscountGrpc/discountdb-wal
