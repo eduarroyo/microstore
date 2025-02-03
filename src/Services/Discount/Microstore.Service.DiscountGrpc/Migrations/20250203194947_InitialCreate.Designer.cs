@@ -10,7 +10,7 @@ using Microstore.Service.DiscountGrpc.Data;
 namespace Microstore.Service.DiscountGrpc.Migrations
 {
     [DbContext(typeof(DiscountContext))]
-    [Migration("20250203194043_InitialCreate")]
+    [Migration("20250203194947_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -39,6 +39,22 @@ namespace Microstore.Service.DiscountGrpc.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Coupons");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Ammount = 150,
+                            Description = "IPhone Discount",
+                            ProductName = "IPhone X"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Ammount = 100,
+                            Description = "Samsung 10",
+                            ProductName = "Samsung 10"
+                        });
                 });
 #pragma warning restore 612, 618
         }

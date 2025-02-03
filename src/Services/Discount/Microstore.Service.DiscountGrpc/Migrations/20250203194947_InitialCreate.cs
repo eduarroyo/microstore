@@ -2,6 +2,8 @@
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Microstore.Service.DiscountGrpc.Migrations
 {
     /// <inheritdoc />
@@ -23,6 +25,15 @@ namespace Microstore.Service.DiscountGrpc.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Coupons", x => x.Id);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Coupons",
+                columns: new[] { "Id", "Ammount", "Description", "ProductName" },
+                values: new object[,]
+                {
+                    { 1, 150, "IPhone Discount", "IPhone X" },
+                    { 2, 100, "Samsung 10", "Samsung 10" }
                 });
         }
 
