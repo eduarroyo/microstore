@@ -18,7 +18,13 @@ services:
     image: ${DOCKER_REGISTRY-}microstoreservicebasketapi
     build:
       context: .
-      dockerfile: services/Basket/Microstore.Service.BasketApi/Dockerfile
+      dockerfile: Services/Basket/Microstore.Service.BasketApi/Dockerfile
+      
+  microstore.service.discountgrpc:
+    image: ${DOCKER_REGISTRY-}microstoreservicediscountgrpc
+    build:
+      context: .
+      dockerfile: Services/Discount/Microstore.Service.DiscountGrpc/Dockerfile
 
 volumes:
   postgres_catalog:
