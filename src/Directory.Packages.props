@@ -20,6 +20,6 @@
     <PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
     <PackageVersion Include="Scrutor" Version="6.0.1" />
     <PackageVersion Include="Swashbuckle.AspNetCore.SwaggerUI" Version="7.2.0" />
-    <PackageVersion Include="Grpc.AspNetCore" Version="2.67.0" />
+    <PackageVersion Include="Grpc.AspNetCore" Version="2.49.0" />
   </ItemGroup>
 </Project>

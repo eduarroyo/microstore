@@ -16,6 +16,7 @@
 	<PackageReference Include="AspNetCore.HealthChecks.UI.Client" />
 	<PackageReference Include="Carter" />
 	<PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
+	<PackageReference Include="Grpc.AspNetCore" />
 	<PackageReference Include="Marten" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" />
@@ -30,11 +31,16 @@
     <Folder Include="Dtos\" />
 	<Folder Include="GrpcServices\" />
 	<Folder Include="Dtos\" />
-	<Folder Include="GrpcServices\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="..\..\Discount\Microstore.Service.DiscountGrpc\Protos\discount.proto" GrpcServices="Client">
+      <Link>Protos\discount.proto</Link>
+    </Protobuf>
   </ItemGroup>
 
 </Project>
