@@ -401,3 +401,9 @@ FodyWeavers.xsd
 /src/Services/Discount/Microstore.Service.DiscountGrpc/discountdb
 /src/Services/Discount/Microstore.Service.DiscountGrpc/discountdb-shm
 /src/Services/Discount/Microstore.Service.DiscountGrpc/discountdb-wal
+/src/Services/Discount/Microstore.Service.DiscountGrpc/discount.db
+/src/Services/Discount/Microstore.Service.DiscountGrpc/discount.db-shm
+/src/Services/Discount/Microstore.Service.DiscountGrpc/discount.db-wal
+/src/Services/Discount/Microstore.Service.DiscountGrpc/discounts.db
+/src/Services/Discount/Microstore.Service.DiscountGrpc/discounts.db-shm
+/src/Services/Discount/Microstore.Service.DiscountGrpc/discounts.db-wal
