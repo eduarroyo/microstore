@@ -10,7 +10,7 @@ using Microstore.Service.DiscountGrpc.Data;
 namespace Microstore.Service.DiscountGrpc.Migrations
 {
     [DbContext(typeof(DiscountContext))]
-    [Migration("20250203194947_InitialCreate")]
+    [Migration("20250204135908_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -25,7 +25,7 @@ namespace Microstore.Service.DiscountGrpc.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Ammount")
+                    b.Property<int>("Amount")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Description")
@@ -44,14 +44,14 @@ namespace Microstore.Service.DiscountGrpc.Migrations
                         new
                         {
                             Id = 1,
-                            Ammount = 150,
+                            Amount = 150,
                             Description = "IPhone Discount",
                             ProductName = "IPhone X"
                         },
                         new
                         {
                             Id = 2,
-                            Ammount = 100,
+                            Amount = 100,
                             Description = "Samsung 10",
                             ProductName = "Samsung 10"
                         });
