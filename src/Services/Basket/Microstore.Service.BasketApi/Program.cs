@@ -1,6 +1,3 @@
-using HealthChecks.UI.Client;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add revices to the container
@@ -28,13 +25,23 @@ builder.Services.Decorate<IBasketRepository, CachedBasketRepository>();
 builder.Services.AddStackExchangeRedisCache(options =>
 {
     options.Configuration = builder.Configuration.GetConnectionString("Redis")!;
-    //options.InstanceName = "BasketApi";
 });
-//if (builder.Environment.IsDevelopment())
-//{
-//    builder.Services.InitializeMartenWith<CatalogInitialData>();
-//}
 
+// Grpc Services
+builder.Services
+    .AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(options =>
+    {
+        options.Address = new Uri(builder.Configuration["GrpcSettings:DiscountUrl"]!);
+    })
+    .ConfigurePrimaryHttpMessageHandler(() =>
+    {
+        return new HttpClientHandler()
+        {
+            ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+        };
+    });
+
+// Cross-Cutting services
 builder.Services.AddHealthChecks()
     .AddNpgSql(builder.Configuration.GetConnectionString("Database")!)
     .AddRedis(builder.Configuration.GetConnectionString("Redis")!);

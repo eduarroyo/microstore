@@ -9,3 +9,6 @@ global using Microsoft.Extensions.Caching.Distributed;
 global using Microstore.Service.BasketApi.Data;
 global using Microstore.Service.BasketApi.Exceptions;
 global using Microstore.Service.BasketApi.Models;
+global using HealthChecks.UI.Client;
+global using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+global using Microstore.Service.DiscountGrpc;
