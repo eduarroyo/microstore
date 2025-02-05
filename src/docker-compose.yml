@@ -8,19 +8,19 @@ services:
   distributedcache:
     image: redis
 
-  microstore.services.catalogapi:
+  catalogapi:
     image: ${DOCKER_REGISTRY-}microstoreservicescatalogapi
     build:
       context: .
       dockerfile: Services/Catalog/Microstore.Services.CatalogApi/Dockerfile
 
-  microstore.service.basketapi:
+  basketapi:
     image: ${DOCKER_REGISTRY-}microstoreservicebasketapi
     build:
       context: .
       dockerfile: Services/Basket/Microstore.Service.BasketApi/Dockerfile
       
-  microstore.service.discountgrpc:
+  discountgrpc:
     image: ${DOCKER_REGISTRY-}microstoreservicediscountgrpc
     build:
       context: .
