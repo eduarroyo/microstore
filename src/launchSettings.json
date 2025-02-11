@@ -6,7 +6,8 @@
       "serviceActions": {
         "microstore.services.catalogapi": "StartDebugging",
         "microstore.service.basketapi": "StartDebugging",
-        "microstore.service.discountgrpc": "StartDebugging"
+        "microstore.service.discountgrpc": "StartDebugging",
+        "microstore.service.ordering": "StartDebugging"
       }
     }
   }
