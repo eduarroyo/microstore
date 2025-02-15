@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Microstore.Service.OrderingApplication\Microstore.Service.OrderingApplication.csproj" />
+  </ItemGroup>
+
 </Project>

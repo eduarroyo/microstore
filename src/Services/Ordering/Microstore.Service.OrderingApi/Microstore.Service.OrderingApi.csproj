@@ -16,7 +16,11 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" />
 	<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" />
-    <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Microstore.Service.OrderingApplication\Microstore.Service.OrderingApplication.csproj" />
+    <ProjectReference Include="..\Microstore.Service.OrderingInfrastructure\Microstore.Service.OrderingInfrastructure.csproj" />
   </ItemGroup>
 
 </Project>
