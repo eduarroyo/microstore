@@ -1,12 +1,44 @@
 ﻿namespace Microstore.Service.OrderingDomain.ValueObjects;
 
 public record Address
-(
-    string FirstName,
-    string LastName,
-    string? EmailAddress,
-    string AddressLine,
-    string Country,
-    string State,
-    string ZipCode
-);
+{
+    public string FirstName { get; } = default!;
+    public string LastName { get; } = default!;
+    public string? EmailAddress { get; } = default!;
+    public string AddressLine { get; } = default!;
+    public string Country { get; } = default!;
+    public string State { get; } = default!;
+    public string ZipCode { get; } = default!;
+
+    protected Address()
+    {
+    }
+
+    private Address
+    (
+        string firstName, 
+        string lastName, 
+        string emailAddress, 
+        string addressLine, 
+        string country, 
+        string state, 
+        string zipCode
+    )
+    { }
+
+    public static Address Of
+    (
+        string firstName,
+        string lastName,
+        string emailAddress,
+        string addressLine,
+        string country,
+        string state,
+        string zipCode
+    )
+    {
+        ArgumentException.ThrowIfNullOrEmpty(emailAddress, nameof(emailAddress));
+        ArgumentException.ThrowIfNullOrWhiteSpace(addressLine, nameof(addressLine));
+        return new Address(firstName, lastName, emailAddress, addressLine, country, state, zipCode);
+    }
+};
