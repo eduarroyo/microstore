@@ -1,11 +1,11 @@
 ﻿namespace Microstore.Service.OrderingDomain.Models;
 
-public class Order : Aggregate<Guid>
+public class Order : Aggregate<OrderId>
 {
     private readonly List<OrderItem> _orderItems = new();
     public IReadOnlyList<OrderItem> OrderItems => _orderItems.AsReadOnly();
-    public Guid CustomerId { get; private set; } = default!;
-    public string OrderName { get; set; } = default!;
+    public CustomerId CustomerId { get; private set; } = default!;
+    public OrderName OrderName { get; set; } = default!;
     public Address ShippingAddress { get; set; } = default!;
     public Address BillingAddress { get; set; } = default!;
     public Payment Payment { get; set; } = default!;
