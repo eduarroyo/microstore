@@ -14,9 +14,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microstore.Services.CatalogApi", "Services\Catalog\Microstore.Services.CatalogApi\Microstore.Services.CatalogApi.csproj", "{982BC9DF-81BF-4136-A0FF-C939AEF4A1BC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ordering", "Ordering", "{4BB081C7-CFE5-428D-95BB-4DF68AE11EFA}"
-	ProjectSection(SolutionItems) = preProject
-		GlobalUsing.cs = GlobalUsing.cs
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApps", "WebApps", "{1A2E6361-9205-43FC-8922-29296146F2CF}"
 EndProject
