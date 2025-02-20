@@ -1,7 +1,4 @@
-﻿using Microstore.Service.OrderingDomain.Models;
-using System.Reflection;
-
-namespace Microstore.Service.OrderingInfrastructure.Data;
+﻿namespace Microstore.Service.OrderingInfrastructure.Data;
 
 public class ApplicationDbContext : DbContext
 {

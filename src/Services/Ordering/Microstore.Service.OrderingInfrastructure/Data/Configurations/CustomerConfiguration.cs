@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microstore.Service.OrderingDomain.Models;
-using Microstore.Service.OrderingDomain.ValueObjects;
-
-namespace Microstore.Service.OrderingInfrastructure.Data.Configurations;
+﻿namespace Microstore.Service.OrderingInfrastructure.Data.Configurations;
 
 public class CustomerConfiguration
     : IEntityTypeConfiguration<Customer>

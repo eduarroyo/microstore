@@ -1,7 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace Microstore.Service.OrderingInfrastructure;
+﻿namespace Microstore.Service.OrderingInfrastructure;
 
 public static class DependencyInjection
 {
