@@ -9,12 +9,12 @@ public static class DependencyInjection
         (this IServiceCollection services, IConfiguration configuration)
     {
         string connectionString = configuration.GetConnectionString("Database")!;
-        
-        //// Add services to the container
-        //services.ADdDbContext<ApplicationDbContext>
-        //(
-        //  options => options.UseSqlServer(connectionString)
-        //);
+
+        //Add services to the container
+        services.AddDbContext<ApplicationDbContext>
+        (
+          options => options.UseSqlServer(connectionString)
+        );
 
         //services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 
