@@ -8,6 +8,9 @@ services:
   distributedcache:
     image: redis
 
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+
   catalogapi:
     image: ${DOCKER_REGISTRY-}microstoreservicescatalogapi
     build:

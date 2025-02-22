@@ -12,10 +12,10 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["services/Basket/Microstore.Service.BasketApi/Microstore.Service.BasketApi.csproj", "services/Basket/Microstore.Service.BasketApi/"]
-RUN dotnet restore "./services/Basket/Microstore.Service.BasketApi/Microstore.Service.BasketApi.csproj"
+COPY ["Services/Basket/Microstore.Service.BasketApi/Microstore.Service.BasketApi.csproj", "Services/Basket/Microstore.Service.BasketApi/"]
+RUN dotnet restore "./Services/Basket/Microstore.Service.BasketApi/Microstore.Service.BasketApi.csproj"
 COPY . .
-WORKDIR "/src/services/Basket/Microstore.Service.BasketApi"
+WORKDIR "/src/Services/Basket/Microstore.Service.BasketApi"
 RUN dotnet build "./Microstore.Service.BasketApi.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # Esta fase se usa para publicar el proyecto de servicio que se copiará en la fase final.
