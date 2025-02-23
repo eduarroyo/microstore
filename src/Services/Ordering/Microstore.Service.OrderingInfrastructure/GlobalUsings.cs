@@ -6,3 +6,4 @@ global using Microstore.Service.OrderingDomain.Models;
 global using Microstore.Service.OrderingDomain.ValueObjects;
 global using Microstore.Service.OrderingInfrastructure.Data;
 global using System.Reflection;
+global using Microsoft.AspNetCore.Builder;
