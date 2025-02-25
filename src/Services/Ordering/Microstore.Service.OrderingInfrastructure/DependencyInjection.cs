@@ -8,11 +8,14 @@ public static class DependencyInjection
         string connectionString = configuration.GetConnectionString("Database")!;
 
         //Add services to the container
+        services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
+        services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
+
         services.AddDbContext<ApplicationDbContext>
         (
-            options =>
+            (serviceProvider, options) =>
             {
-                options.AddInterceptors(new AuditableEntityInterceptor());
+                options.AddInterceptors(serviceProvider.GetServices<ISaveChangesInterceptor>());
                 options.UseSqlServer(connectionString);
             }
         );
