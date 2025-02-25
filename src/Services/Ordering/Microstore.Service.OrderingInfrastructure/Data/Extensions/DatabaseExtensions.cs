@@ -1,4 +1,6 @@
 ﻿
+using Microsoft.AspNetCore.Builder;
+
 namespace Microstore.Service.OrderingInfrastructure.Data.Extensions;
 public  static class DatabaseExtensions
 {
@@ -7,7 +9,6 @@ public  static class DatabaseExtensions
         using IServiceScope scope = app.Services.CreateScope();
         ApplicationDbContext context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
         await context.Database.MigrateAsync();
-
         await SeedAsync(context);
     }
 
@@ -15,7 +16,7 @@ public  static class DatabaseExtensions
     {
         await SeedCustomersAsync(context);
         await SeedProductAsync(context);
-        await SeedOrdersAndItemsAsync(context);
+        await SeedOrdersWithItemsAsync(context);
     }
 
     private static async Task SeedCustomersAsync(ApplicationDbContext context)
@@ -36,7 +37,7 @@ public  static class DatabaseExtensions
         }
     }
 
-    private static async Task SeedOrdersAndItemsAsync(ApplicationDbContext context)
+    private static async Task SeedOrdersWithItemsAsync(ApplicationDbContext context)
     {
         if (!await context.Orders.AnyAsync())
         {

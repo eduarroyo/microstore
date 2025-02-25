@@ -76,19 +76,16 @@ public class OrderConfiguration
 
                 addressBuilder
                     .Property(a => a.Country)
-                    .HasMaxLength(50)
-                    .IsRequired();
+                    .HasMaxLength(50);
 
                 addressBuilder
                     .Property(a => a.State)
-                    .HasMaxLength(50)
-                    .IsRequired();
+                    .HasMaxLength(50);
 
                 addressBuilder
                     .Property(a => a.ZipCode)
                     .HasMaxLength(5)
                     .IsRequired();
-
             }
         );
 
@@ -118,19 +115,16 @@ public class OrderConfiguration
 
                 addressBuilder
                     .Property(a => a.Country)
-                    .HasMaxLength(50)
-                    .IsRequired();
+                    .HasMaxLength(50);
 
                 addressBuilder
                     .Property(a => a.State)
-                    .HasMaxLength(50)
-                    .IsRequired();
+                    .HasMaxLength(50);
 
                 addressBuilder
                     .Property(a => a.ZipCode)
                     .HasMaxLength(5)
                     .IsRequired();
-
             }
         );
 
@@ -143,17 +137,21 @@ public class OrderConfiguration
                     .Property(p => p.CardName)
                     .HasMaxLength(50)
                     .IsRequired();
+
                 paymentBuilder
                     .Property(p => p.CardNumber)
                     .HasMaxLength(24)
                     .IsRequired();
+                
                 paymentBuilder
                     .Property(p => p.Expiration)
                     .HasMaxLength(10);
+                
                 paymentBuilder
                     .Property(p => p.CVV)
                     .HasMaxLength(3)
                     .IsRequired();
+                
                 paymentBuilder
                     .Property(p => p.PaymentMethod);
             }

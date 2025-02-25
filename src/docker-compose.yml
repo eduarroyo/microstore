@@ -29,11 +29,11 @@ services:
       context: .
       dockerfile: Services/Discount/Microstore.Service.DiscountGrpc/Dockerfile
 
-  microstore.service.ordering:
-    image: ${DOCKER_REGISTRY-}microstoreserviceordering
-    build:
-      context: .
-      dockerfile: Services/Ordering/Microstore.Service.Ordering/Dockerfile
+  # orderingapi:
+  #   image: ${DOCKER_REGISTRY-}microstoreserviceordering
+  #   build:
+  #     context: .
+  #     dockerfile: Services/Ordering/Microstore.Service.Ordering/Dockerfile
 
 volumes:
   postgres_catalog:

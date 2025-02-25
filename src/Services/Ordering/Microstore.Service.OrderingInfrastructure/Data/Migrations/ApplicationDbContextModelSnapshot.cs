@@ -55,7 +55,7 @@ namespace Microstore.Service.OrderingInfrastructure.Data.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
-                    b.ToTable("Customers");
+                    b.ToTable("Customers", (string)null);
                 });
 
             modelBuilder.Entity("Microstore.Service.OrderingDomain.Models.Order", b =>
@@ -208,7 +208,7 @@ namespace Microstore.Service.OrderingInfrastructure.Data.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("Microstore.Service.OrderingDomain.Models.OrderItem", b =>
@@ -246,7 +246,7 @@ namespace Microstore.Service.OrderingInfrastructure.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OrderItems");
+                    b.ToTable("OrderItems", (string)null);
                 });
 
             modelBuilder.Entity("Microstore.Service.OrderingDomain.Models.Product", b =>
@@ -276,7 +276,7 @@ namespace Microstore.Service.OrderingInfrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("Microstore.Service.OrderingDomain.Models.Order", b =>
