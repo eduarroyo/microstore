@@ -10,7 +10,11 @@ public static class DependencyInjection
         //Add services to the container
         services.AddDbContext<ApplicationDbContext>
         (
-          options => options.UseSqlServer(connectionString)
+            options =>
+            {
+                options.AddInterceptors(new AuditableEntityInterceptor());
+                options.UseSqlServer(connectionString);
+            }
         );
 
         //services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
