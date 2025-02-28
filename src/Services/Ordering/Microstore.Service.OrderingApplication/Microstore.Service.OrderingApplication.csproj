@@ -12,10 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Extensions\" />
-    <Folder Include="Orders\Commands\CreateOrder\" />
     <Folder Include="Orders\Commands\DeleteOrder\" />
     <Folder Include="Orders\Commands\UpdateOrder\" />
     <Folder Include="Orders\EventHandlers\Domain\" />
@@ -23,6 +21,10 @@
     <Folder Include="Orders\Queries\GetOrderByName\" />
     <Folder Include="Orders\Queries\GetOrders\" />
     <Folder Include="Orders\Queries\GetOrdersByCustomer\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
   </ItemGroup>
 
 </Project>
