@@ -47,6 +47,15 @@ public class CreateOrderHandler
             orderDto.BillingAddress.ZipCode
         );
 
+        Payment payment = Payment.Of
+        (
+            orderDto.Payment.CardName,
+            orderDto.Payment.CardNumber,
+            orderDto.Payment.Expiration,
+            orderDto.Payment.Cvv,
+            orderDto.Payment.PaymentMethod
+        );
+
         Order newOrder = Order.Create
         (
             OrderId.Of(Guid.NewGuid()),
@@ -54,7 +63,7 @@ public class CreateOrderHandler
             OrderName.Of(orderDto.OrderName),
             shippingAddres,
             billingAddres,
-            Payment.Of(orderDto.Payment.CardName, orderDto.Payment.CardNumber, orderDto.Payment.Expiration, orderDto.Payment.Cvv, orderDto.Payment.PaymentMethod)
+            payment
         );
 
         return newOrder;
