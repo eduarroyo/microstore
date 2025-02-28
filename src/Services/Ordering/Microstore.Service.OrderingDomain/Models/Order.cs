@@ -23,8 +23,7 @@ public class Order : Aggregate<OrderId>
         OrderName orderName,
         Address shippingAddress,
         Address billingAddress,
-        Payment payment,
-        OrderStatus orderStatus
+        Payment payment
     )
     {
         Order order = new Order
@@ -35,7 +34,7 @@ public class Order : Aggregate<OrderId>
             ShippingAddress = shippingAddress,
             BillingAddress = billingAddress,
             Payment = payment,
-            Status = orderStatus
+            Status = OrderStatus.Pending
         };
         
         order.AddDomainEvent(new OrderCreatedEvent(order));
