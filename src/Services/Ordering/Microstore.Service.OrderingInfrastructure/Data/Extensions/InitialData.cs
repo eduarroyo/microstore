@@ -1,6 +1,4 @@
-﻿using Microstore.Service.OrderingDomain.Enums;
-
-namespace Microstore.Service.OrderingInfrastructure.Data.Extensions;
+﻿namespace Microstore.Service.OrderingInfrastructure.Data.Extensions;
 
 internal static class InitialData
 {
@@ -35,8 +33,7 @@ internal static class InitialData
                 OrderName.Of("ORD_1"),
                 shippingAddress: addr1,
                 billingAddress: addr1,
-                payment1,
-                OrderStatus.Completed
+                payment1
             );
             order1.Add(ProductId.Of(new Guid("0bad0c1e-fdc0-42ce-a043-958e9ff57c28")), 2, 500);
             order1.Add(ProductId.Of(new Guid("f85d7b54-64c6-4933-9b96-58e6e3b5c66d")), 1, 400);
@@ -48,8 +45,7 @@ internal static class InitialData
                 OrderName.Of("ORD_2"),
                 shippingAddress: addr2,
                 billingAddress: addr2,
-                payment2,
-                OrderStatus.Pending
+                payment2
             );
             order2.Add(ProductId.Of(new Guid("9b683925-5dcc-4804-abe8-39a5dab72900")), 1, 650);
             order2.Add(ProductId.Of(new Guid("636c97a1-499d-4a6f-bde9-0c6d380b76fb")), 2, 450);

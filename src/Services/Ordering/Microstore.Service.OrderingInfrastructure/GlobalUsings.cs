@@ -1,5 +1,4 @@
-﻿global using Microsoft.AspNetCore.Builder;
-global using Microsoft.EntityFrameworkCore;
+﻿global using Microsoft.EntityFrameworkCore;
 global using Microsoft.EntityFrameworkCore.ChangeTracking;
 global using Microsoft.EntityFrameworkCore.Diagnostics;
 global using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -7,6 +6,7 @@ global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
 global using Microstore.Service.OrderingApplication.Data;
 global using Microstore.Service.OrderingDomain.Abstractions;
+global using Microstore.Service.OrderingDomain.Enums;
 global using Microstore.Service.OrderingDomain.Models;
 global using Microstore.Service.OrderingDomain.ValueObjects;
 global using Microstore.Service.OrderingInfrastructure.Data;
