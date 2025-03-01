@@ -12,11 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Extensions\" />
     <Folder Include="Orders\EventHandlers\Integration\" />
-    <Folder Include="Orders\Queries\GetOrderByName\" />
-    <Folder Include="Orders\Queries\GetOrders\" />
-    <Folder Include="Orders\Queries\GetOrdersByCustomer\" />
   </ItemGroup>
 
   <ItemGroup>
