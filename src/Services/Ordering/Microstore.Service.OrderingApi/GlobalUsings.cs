@@ -1,0 +1,11 @@
+﻿global using Carter;
+global using Mapster;
+global using MediatR;
+global using Microstore.Service.OrderingApplication.Dtos;
+global using Microstore.Service.OrderingApplication.Orders.Commands.CreateOrder;
+global using Microstore.Service.OrderingApplication.Orders.Commands.DeleteOrder;
+global using Microstore.Service.OrderingApplication.Orders.Commands.UpdateOrder;
+global using Microstore.Service.OrderingApplication.Orders.Queries.GetOrderByCustomer;
+global using Microstore.Service.OrderingApplication.Orders.Queries.GetOrderByName;
+global using BuildingBlocks.Pagination;
+global using Microstore.Service.OrderingApplication.Orders.Queries.GetOrders;
