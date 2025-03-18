@@ -12,19 +12,20 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Services/Basket/Microstore.Service.BasketApi/Microstore.Service.BasketApi.csproj", "Services/Basket/Microstore.Service.BasketApi/"]
-RUN dotnet restore "./Services/Basket/Microstore.Service.BasketApi/Microstore.Service.BasketApi.csproj"
+COPY ["Directory.Packages.props", "."]
+COPY ["Services/Ordering/Microstore.Service.OrderingApi/Microstore.Service.OrderingApi.csproj", "Services/Ordering/Microstore.Service.OrderingApi/"]
+RUN dotnet restore "./Services/Ordering/Microstore.Service.OrderingApi/Microstore.Service.OrderingApi.csproj"
 COPY . .
-WORKDIR "/src/Services/Basket/Microstore.Service.BasketApi"
-RUN dotnet build "./Microstore.Service.BasketApi.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/Services/Ordering/Microstore.Service.OrderingApi"
+RUN dotnet build "./Microstore.Service.OrderingApi.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # Esta fase se usa para publicar el proyecto de servicio que se copiará en la fase final.
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./Microstore.Service.BasketApi.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./Microstore.Service.OrderingApi.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 # Esta fase se usa en producción o cuando se ejecuta desde VS en modo normal (valor predeterminado cuando no se usa la configuración de depuración)
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Microstore.Service.BasketApi.dll"]
+ENTRYPOINT ["dotnet", "Microstore.Service.OrderingApi.dll"]

@@ -29,6 +29,21 @@ services:
     ports:
       - "6379:6379"
 
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver
+    environment:
+        SA_PASSWORD: "Password123"
+        ACCEPT_EULA: "Y"
+        MSSQL_PID: "Express"
+        TZ: Europe/Madrid
+    ports:
+      - "1434:1433"
+    volumes:
+      - C:/volumes/microstore/data/:/var/opt/mssql/data
+      - C:/volumes/microstore/log/:/var/opt/mssql/log
+      - C:/volumes/microstore/secrets/:/var/opt/mssql/secrets
+
   catalogapi:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -74,6 +89,21 @@ services:
     ports:
       - "6002:8080"
       - "6062:8081"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+
+  orderingapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - ConnectionStrings__Database=Server=sqlserver;Database=OrderDb;User Id=sa;Password=Password123;Encrypt=False;TrustServerCertificate=True;
+    ports:
+      - "6003:8080"
+      - "6063:8081"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
