@@ -1,9 +1,10 @@
-﻿namespace Microstore.Service.OrderingApplication.Orders.EventHandlers.Domain;
-public class OrderUpdatedEventHandler
-    (ILogger<OrderUpdatedEventHandler> logger)
-    : INotificationHandler<OrderUpdatedEvent>
+﻿
+namespace Microstore.Service.OrderingApplication.Orders.EventHandlers.Domain;
+public class OrderCreatedEventHandler
+    (ILogger<OrderCreatedEventHandler> logger)
+    : INotificationHandler<OrderCreatedEvent>
 {
-    public Task Handle(OrderUpdatedEvent notification, CancellationToken cancellationToken)
+    public Task Handle(OrderCreatedEvent notification, CancellationToken cancellationToken)
     {
         logger.LogInformation("Domain Event handled: {DomainEvent}", notification.GetType().Name);
         return Task.CompletedTask;

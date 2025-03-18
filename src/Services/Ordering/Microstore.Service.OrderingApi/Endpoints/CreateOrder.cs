@@ -1,7 +1,7 @@
 ﻿namespace Microstore.Service.OrderingApi.Endpoints;
 
 public record CreateOrderRequest(OrderDto Order);
-public record CreateOrderResponse(Guid Id);
+public record CreateOrderResponse(Guid OrderId);
 
 public class CreateOrder : ICarterModule
 {
@@ -12,7 +12,7 @@ public class CreateOrder : ICarterModule
             CreateOrderCommand command = request.Adapt<CreateOrderCommand>();
             CreateOrderResult result = await sender.Send(command);
             CreateOrderResponse response = result.Adapt<CreateOrderResponse>();
-            return Results.Created($"/orders/{response.Id}", response);
+            return Results.Created($"/orders/{response.OrderId}", response);
         })
         .WithName("CreateOrder")
         .Produces<CreateOrderResponse>(StatusCodes.Status201Created)

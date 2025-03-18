@@ -17,6 +17,7 @@ public class UpdateOrderHandler
         UpdateOrderWithNewValues(order, command.Order);
 
         // Save changes to database
+        dbContext.Orders.Update(order);
         await dbContext.SaveChangesAsync(cancellationToken);
 
         // Return result

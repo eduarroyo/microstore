@@ -66,6 +66,11 @@ public class CreateOrderHandler
             payment
         );
 
+        foreach (OrderItemDto orderItemDto in orderDto.OrderItems)
+        {
+            newOrder.Add(ProductId.Of(orderItemDto.ProductId), orderItemDto.Quantity, orderItemDto.Price);
+        }
+
         return newOrder;
     }
 }
