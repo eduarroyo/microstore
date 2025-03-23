@@ -2,7 +2,7 @@
 
 public record CheckoutBasketRequest(BasketCheckoutDto BasketCheckoutDto);
 
-public record CheckoutBasketeResponse(bool IsSucccess);
+public record CheckoutBasketeResponse(bool IsSuccess);
 
 public class CheckoutBasketEndpoints : ICarterModule
 {
