@@ -19,8 +19,6 @@ public class CreateOrderHandler
 
         // return result
         return new CreateOrderResult(order.Id.Value);
-
-        throw new NotImplementedException();
     }
 
     private Order CreateNewOrder(OrderDto orderDto)
