@@ -22,7 +22,7 @@ public class CheckoutBasketHandler
         eventMessage.TotalPrice = basket.TotalPrice;
 
         // Send basket checkout event to rabbitMq using masstransit
-        await publishEndpoint.Publish(basket.Adapt<BasketCheckoutEvent>());
+        await publishEndpoint.Publish(eventMessage.Adapt<BasketCheckoutEvent>());
 
         // delete the basket
         _ = await Repository.DeleteBasket(command.BasketCheckoutDto.UserName);
