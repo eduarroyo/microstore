@@ -2,9 +2,11 @@
 global using BuildingBlocks.Exceptions;
 global using BuildingBlocks.Pagination;
 global using FluentValidation;
+global using MassTransit;
 global using MediatR;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.Extensions.Logging;
+global using Microsoft.FeatureManagement;
 global using Microstore.Service.OrderingApplication.Data;
 global using Microstore.Service.OrderingApplication.Dtos;
 global using Microstore.Service.OrderingApplication.Exceptions;
