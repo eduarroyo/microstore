@@ -1,41 +1,43 @@
 services:
-  catalogdb:
-    image: postgres
+    catalogdb:
+        image: postgres
 
-  basketdb:
-    image: postgres
+    basketdb:
+        image: postgres
 
-  distributedcache:
-    image: redis
+    distributedcache:
+        image: redis
 
-  sqlserver:
-    image: mcr.microsoft.com/mssql/server:2019-latest
+    sqlserver:
+        image: mcr.microsoft.com/mssql/server:2019-latest
 
-  catalogapi:
-    image: ${DOCKER_REGISTRY-}microstoreservicescatalogapi
-    build:
-      context: .
-      dockerfile: Services/Catalog/Microstore.Services.CatalogApi/Dockerfile
+    catalogapi:
+        image: ${DOCKER_REGISTRY-}microstoreservicescatalogapi
+        build:
+            context: .
+            dockerfile: Services/Catalog/Microstore.Services.CatalogApi/Dockerfile
 
-  basketapi:
-    image: ${DOCKER_REGISTRY-}microstoreservicebasketapi
-    build:
-      context: .
-      dockerfile: Services/Basket/Microstore.Service.BasketApi/Dockerfile
+    messagebroker:
+        image: rabbitmq:3-management
+
+    basketapi:
+        image: ${DOCKER_REGISTRY-}microstoreservicebasketapi
+        build:
+            context: .
+            dockerfile: Services/Basket/Microstore.Service.BasketApi/Dockerfile
       
-  discountgrpc:
-    image: ${DOCKER_REGISTRY-}microstoreservicediscountgrpc
-    build:
-      context: .
-      dockerfile: Services/Discount/Microstore.Service.DiscountGrpc/Dockerfile
+    discountgrpc:
+        image: ${DOCKER_REGISTRY-}microstoreservicediscountgrpc
+        build:
+            context: .
+            dockerfile: Services/Discount/Microstore.Service.DiscountGrpc/Dockerfile
 
-  orderingapi:
-    image: ${DOCKER_REGISTRY-}microstoreserviceordering
-    build:
-      context: .
-      dockerfile: Services/Ordering/Microstore.Service.OrderingApi/Dockerfile
+    orderingapi:
+        image: ${DOCKER_REGISTRY-}microstoreserviceordering
+        build:
+            context: .
+            dockerfile: Services/Ordering/Microstore.Service.OrderingApi/Dockerfile
 
 volumes:
-  postgres_catalog:
-  postgres_basket:
-
+    postgres_catalog:
+    postgres_basket:
