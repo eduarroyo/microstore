@@ -41,6 +41,9 @@ builder.Services
         };
     });
 
+// Async Communication Services
+builder.Services.AddMessageBroker(builder.Configuration);
+
 // Cross-Cutting services
 builder.Services.AddHealthChecks()
     .AddNpgSql(builder.Configuration.GetConnectionString("Database")!)
