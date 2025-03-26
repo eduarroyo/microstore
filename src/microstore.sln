@@ -44,6 +44,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microstore.Service.Ordering
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Messaging", "..\BuildingBlocks.Messaging\BuildingBlocks.Messaging.csproj", "{A14B5F45-5402-4C17-8D78-36034528F18E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microstore.ApiGateways.YarpApiGateway", "ApiGateways\Microstore.ApiGateways.YarpApiGateway\Microstore.ApiGateways.YarpApiGateway.csproj", "{C315CB39-7F23-4F68-A6AE-D901D17953ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,6 +92,10 @@ Global
 		{A14B5F45-5402-4C17-8D78-36034528F18E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A14B5F45-5402-4C17-8D78-36034528F18E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A14B5F45-5402-4C17-8D78-36034528F18E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C315CB39-7F23-4F68-A6AE-D901D17953ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C315CB39-7F23-4F68-A6AE-D901D17953ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C315CB39-7F23-4F68-A6AE-D901D17953ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C315CB39-7F23-4F68-A6AE-D901D17953ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,6 +114,7 @@ Global
 		{6985AA6F-156D-476B-BAB2-9AABD5125811} = {4BB081C7-CFE5-428D-95BB-4DF68AE11EFA}
 		{B5B196B9-619C-4B64-BC6D-F093BB1BAC69} = {4BB081C7-CFE5-428D-95BB-4DF68AE11EFA}
 		{A14B5F45-5402-4C17-8D78-36034528F18E} = {508CDB6B-EB48-4904-B293-66A44965CCEA}
+		{C315CB39-7F23-4F68-A6AE-D901D17953ED} = {FFB9172A-2AD6-4C07-8CC9-013AD58126D5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {525727D6-D650-402D-87E4-1C15B4A62212}
