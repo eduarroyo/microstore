@@ -30,8 +30,8 @@ jobs:
           pwd
           ls -l
     - name: Restore dependencies
-      run: dotnet restore src/microstore.sln
+      run: dotnet restore ./src/microstore.sln
     - name: Build
-      run: dotnet build --no-restore src/microstore.sln
+      run: dotnet build --no-restore ./src/microstore.sln
     - name: Test
-      run: dotnet test --no-build --verbosity normal src/microstore.sln
+      run: dotnet test --no-build --verbosity normal ./src/microstore.sln
