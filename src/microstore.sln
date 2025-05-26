@@ -42,7 +42,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microstore.Service.Ordering
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microstore.Service.OrderingInfrastructure", "Services\Ordering\Microstore.Service.OrderingInfrastructure\Microstore.Service.OrderingInfrastructure.csproj", "{B5B196B9-619C-4B64-BC6D-F093BB1BAC69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Messaging", "..\BuildingBlocks.Messaging\BuildingBlocks.Messaging.csproj", "{A14B5F45-5402-4C17-8D78-36034528F18E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Messaging", "BuildingBlocks\Messaging\BuildingBlocks.Messaging.csproj", "{A14B5F45-5402-4C17-8D78-36034528F18E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microstore.ApiGateways.YarpApiGateway", "ApiGateways\Microstore.ApiGateways.YarpApiGateway\Microstore.ApiGateways.YarpApiGateway.csproj", "{C315CB39-7F23-4F68-A6AE-D901D17953ED}"
 EndProject
