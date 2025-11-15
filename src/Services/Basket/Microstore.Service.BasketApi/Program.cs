@@ -1,5 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
 
+builder.AddServiceDefaults();
+
 // Add revices to the container
 builder.Services.AddCarter();
 System.Reflection.Assembly assembly = typeof(Program).Assembly;
@@ -14,7 +16,7 @@ builder.Services.AddOpenApi();
 builder.Services
     .AddMarten(opts =>
     {
-        opts.Connection(builder.Configuration.GetConnectionString("Database")!);
+        opts.Connection(builder.Configuration.GetConnectionString("BasketDatabase")!);
         opts.Schema.For<ShoppingCart>().Identity(sc => sc.UserName);
     })
     .UseLightweightSessions();
@@ -24,7 +26,7 @@ builder.Services.Decorate<IBasketRepository, CachedBasketRepository>();
 
 builder.Services.AddStackExchangeRedisCache(options =>
 {
-    options.Configuration = builder.Configuration.GetConnectionString("Redis")!;
+    options.Configuration = builder.Configuration.GetConnectionString("RedisCache")!;
 });
 
 // Grpc Services
@@ -46,10 +48,12 @@ builder.Services.AddMessageBroker(builder.Configuration);
 
 // Cross-Cutting services
 builder.Services.AddHealthChecks()
-    .AddNpgSql(builder.Configuration.GetConnectionString("Database")!)
+    .AddNpgSql(builder.Configuration.GetConnectionString("BasketDatabase")!)
     .AddRedis(builder.Configuration.GetConnectionString("Redis")!);
 
 var app = builder.Build();
+
+app.MapDefaultEndpoints();
 
 // Configure the HTTP request pipeline
 app.MapCarter();

@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\iac\microstore.ServiceDefaults\microstore.ServiceDefaults.csproj" />
     <ProjectReference Include="..\Microstore.Service.OrderingApplication\Microstore.Service.OrderingApplication.csproj" />
     <ProjectReference Include="..\Microstore.Service.OrderingInfrastructure\Microstore.Service.OrderingInfrastructure.csproj" />
   </ItemGroup>

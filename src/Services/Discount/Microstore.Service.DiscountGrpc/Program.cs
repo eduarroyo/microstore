@@ -1,13 +1,17 @@
 var builder = WebApplication.CreateBuilder(args);
 
+builder.AddServiceDefaults();
+
 // Add services to the container.
 builder.Services.AddGrpc();
 builder.Services.AddDbContext<DiscountContext>(options =>
 {
-    options.UseSqlite(builder.Configuration.GetConnectionString("Database"));
+    options.UseSqlite(builder.Configuration.GetConnectionString("DiscountsDatabase"));
 });
 
 var app = builder.Build();
+
+app.MapDefaultEndpoints();
 
 // Configure the HTTP request pipeline.
 await app.UseMigration();
