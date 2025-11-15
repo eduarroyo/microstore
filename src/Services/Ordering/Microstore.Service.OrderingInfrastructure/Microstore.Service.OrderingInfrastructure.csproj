@@ -83,4 +83,8 @@
     <ProjectReference Include="..\Microstore.Service.OrderingApplication\Microstore.Service.OrderingApplication.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
+  </ItemGroup>
+
 </Project>

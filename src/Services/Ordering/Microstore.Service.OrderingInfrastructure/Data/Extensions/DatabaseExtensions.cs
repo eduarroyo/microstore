@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 
 namespace Microstore.Service.OrderingInfrastructure.Data.Extensions;
 public  static class DatabaseExtensions

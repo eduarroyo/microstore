@@ -5,7 +5,7 @@ public static class DependencyInjection
     public static IServiceCollection AddInfrastructureServices
         (this IServiceCollection services, IConfiguration configuration)
     {
-        string connectionString = configuration.GetConnectionString("Database")!;
+        string connectionString = configuration.GetConnectionString("OrderingDatabase")!;
 
         //Add services to the container
         services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();

@@ -13,6 +13,13 @@ IResourceBuilder<PostgresServerResource> postgres = builder.AddPostgres("DbServe
 IResourceBuilder<PostgresDatabaseResource> catalogDatabase = postgres.AddDatabase("CatalogDatabase");
 IResourceBuilder<PostgresDatabaseResource> basketDatabase = postgres.AddDatabase("BasketDatabase");
 
+IResourceBuilder<SqlServerServerResource> sqlServer = builder.AddSqlServer("SqlServer")
+    .WithLifetime(ContainerLifetime.Persistent)
+    .WithHostPort(1433)
+    .WithDataVolume();
+
+IResourceBuilder<SqlServerDatabaseResource> orderingDb = sqlServer.AddDatabase("OrderingDatabase");
+
 IResourceBuilder<RabbitMQServerResource> rabbitMq = builder.AddRabbitMQ("RabbitMQ", rabbitUser, rabbitPassword)
     .WithManagementPlugin();
 
@@ -21,7 +28,6 @@ IResourceBuilder<RedisResource> redis = builder.AddRedis("RedisCache")
     .WithHostPort(6379);
 
 builder.AddProject<Projects.Microstore_Services_CatalogApi>("microstore-services-catalogapi")
-    .WithReference(postgres)
     .WithReference(catalogDatabase)
     .WaitFor(catalogDatabase);
 
@@ -34,8 +40,14 @@ IResourceBuilder<ProjectResource> basketApi = builder.AddProject<Projects.Micros
     .WithReference(discountGrpc)
     .WithReference(rabbitMq)
     .WithReference(basketDatabase)
+    .WaitFor(discountGrpc)
+    .WaitFor(rabbitMq)
     .WaitFor(basketDatabase);
 
-//builder.AddProject<Projects.Microstore_Service_OrderingApi>("microstore-service-orderingapi");
+IResourceBuilder<ProjectResource> orderingApi = builder.AddProject<Projects.Microstore_Service_OrderingApi>("microstore-service-orderingapi")
+    .WithReference(rabbitMq)
+    .WithReference(orderingDb)
+    .WaitFor(rabbitMq)
+    .WaitFor(orderingDb);
 
 builder.Build().Run();

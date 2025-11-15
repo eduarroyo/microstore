@@ -11,7 +11,7 @@ public static class DependencyInjection
         services.AddCarter();
         services.AddExceptionHandler<CustomExceptionHandler>();
         services.AddHealthChecks()
-            .AddSqlServer(configuration.GetConnectionString("Database")!);
+            .AddSqlServer(configuration.GetConnectionString("OrderingDatabase")!);
         return services;
     }
 
