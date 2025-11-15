@@ -2,7 +2,7 @@
 
 public record PaymentDto
 (
-    string CardName,
+    string? CardName,
     string CardNumber,
     string Expiration,
     string Cvv,

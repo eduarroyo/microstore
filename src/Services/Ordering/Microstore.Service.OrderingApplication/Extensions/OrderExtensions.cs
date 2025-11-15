@@ -30,8 +30,8 @@ public static class OrderExtensions
             ),
             Payment: new PaymentDto
             (
-                o.Payment.CardNumber,
                 o.Payment.CardName,
+                o.Payment.CardNumber,
                 o.Payment.Expiration,
                 o.Payment.CVV,
                 o.Payment.PaymentMethod

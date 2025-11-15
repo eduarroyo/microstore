@@ -29,7 +29,7 @@ public record Payment
 
     public static Payment Of
     (
-        string cardName,
+        string? cardName,
         string cardNumber,
         string expiration,
         string cvv,
@@ -41,6 +41,6 @@ public record Payment
         ArgumentException.ThrowIfNullOrWhiteSpace(cvv, nameof(cvv));
         ArgumentOutOfRangeException.ThrowIfGreaterThan(cvv.Length, 3);
 
-        return new Payment(cardName, cardNumber, expiration, cvv, paymentMethod);
+        return new Payment(cardName!, cardNumber, expiration, cvv, paymentMethod);
     }
 }
