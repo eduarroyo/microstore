@@ -1,9 +1,9 @@
-using Aspire.Hosting;
-
 var builder = DistributedApplication.CreateBuilder(args);
 
 IResourceBuilder<ParameterResource> postgresUser = builder.AddParameterFromConfiguration("POSTGRESUSER", "POSTGRESUSER", secret: true);
 IResourceBuilder<ParameterResource> postgresPassword = builder.AddParameterFromConfiguration("POSTGRESPASSWORD", "POSTGRESPASSWORD", secret: true);
+IResourceBuilder<ParameterResource> rabbitUser = builder.AddParameterFromConfiguration("RABBITUSER", "RABBITUSER", secret: true);
+IResourceBuilder<ParameterResource> rabbitPassword = builder.AddParameterFromConfiguration("RABBITPASSWORD", "RABBITPASSWORD", secret: true);
 
 IResourceBuilder<PostgresServerResource> postgres = builder.AddPostgres("DbServer", postgresUser, postgresPassword)
     .WithLifetime(ContainerLifetime.Persistent)
@@ -12,6 +12,9 @@ IResourceBuilder<PostgresServerResource> postgres = builder.AddPostgres("DbServe
 
 IResourceBuilder<PostgresDatabaseResource> catalogDatabase = postgres.AddDatabase("CatalogDatabase");
 IResourceBuilder<PostgresDatabaseResource> basketDatabase = postgres.AddDatabase("BasketDatabase");
+
+IResourceBuilder<RabbitMQServerResource> rabbitMq = builder.AddRabbitMQ("RabbitMQ", rabbitUser, rabbitPassword)
+    .WithManagementPlugin();
 
 IResourceBuilder<RedisResource> redis = builder.AddRedis("RedisCache")
     .WithLifetime(ContainerLifetime.Persistent)
@@ -29,6 +32,7 @@ IResourceBuilder<ProjectResource> discountGrpc = builder.AddProject<Projects.Mic
 IResourceBuilder<ProjectResource> basketApi = builder.AddProject<Projects.Microstore_Service_BasketApi>("microstore-service-basketapi")
     .WithReference(redis)
     .WithReference(discountGrpc)
+    .WithReference(rabbitMq)
     .WithReference(basketDatabase)
     .WaitFor(basketDatabase);
 
