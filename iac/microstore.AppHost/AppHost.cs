@@ -50,4 +50,12 @@ IResourceBuilder<ProjectResource> orderingApi = builder.AddProject<Projects.Micr
     .WaitFor(rabbitMq)
     .WaitFor(orderingDb);
 
+IResourceBuilder<ProjectResource> apiGateway = builder.AddProject<Projects.Microstore_ApiGateways_YarpApiGateway>("microstore-apigateway")
+    .WithReference(basketApi)
+    .WithReference(orderingApi)
+    .WithReference(catalogDatabase)
+    .WaitFor(basketApi)
+    .WaitFor(orderingApi)
+    .WaitFor(catalogDatabase);
+
 builder.Build().Run();

@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\ApiGateways\Microstore.ApiGateways.YarpApiGateway\Microstore.ApiGateways.YarpApiGateway.csproj" />
     <ProjectReference Include="..\..\src\Services\Basket\Microstore.Service.BasketApi\Microstore.Service.BasketApi.csproj" />
     <ProjectReference Include="..\..\src\Services\Catalog\Microstore.Services.CatalogApi\Microstore.Services.CatalogApi.csproj" />
     <ProjectReference Include="..\..\src\Services\Discount\Microstore.Service.DiscountGrpc\Microstore.Service.DiscountGrpc.csproj" />
